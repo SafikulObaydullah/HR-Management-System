@@ -106,14 +106,38 @@ namespace WebApiCoreLecture.Service.EmployeeRepo
       //}
       public async Task<MessageHelper> EditEmployeeBasicInfo(CreateEmployeeBasicInfoDTO objCreate)
       {
-         var data = _context.TblEmployeeBasicInfos.Where(x => x.IntEmployeeId == objCreate.EmployeeId).FirstOrDefault();
-         if (data == null)
+         var editdata = _context.TblEmployeeBasicInfos.Where(x => x.IntEmployeeId == objCreate.EmployeeId).FirstOrDefault();
+         if (editdata == null)
          {
-            throw new Exception("Data Not Found");
+            throw new Exception("Basic Information not found,Please Contact Admin or Your Line Manager");
          }
-         data.strEmployeeCode = objCreate.EmployeeCode;
-         data.EmployeeFirstName= objCreate.EmployeeFirstName;
-         _context.TblEmployeeBasicInfos.Update(data);
+         editdata.strEmployeeCode = objCreate.EmployeeCode;
+         editdata.EmployeeFirstName= objCreate.EmployeeFirstName;
+         editdata.MiddleName = objCreate.MiddleName;
+         editdata.LastName = objCreate.LastName;
+         editdata.EmployeeFullName = objCreate.EmployeeFullName;
+         editdata.DateOfBirth= objCreate.DateOfBirth;
+         editdata.JoiningDate = objCreate.JoiningDate;
+         editdata.Email = objCreate.Email;
+         editdata.ContactNumber= objCreate.ContactNumber;
+         editdata.AlternativeContactNumber= objCreate.AlternativeContactNumber;
+         editdata.EmploymentStatusId= objCreate.EmploymentStatusId;
+         editdata.EmpGradeId= objCreate.EmpGradeId;   
+         editdata.FatherName= objCreate.FatherName;
+         editdata.MotherName= objCreate.MotherName;
+         editdata.AccountId = objCreate.AccountId;
+         editdata.BasicSalary= objCreate.BasicSalary;
+         editdata.BusinessunitId= objCreate.BusinessunitId;
+         editdata.LineManagerId= objCreate.LineManagerId;
+         editdata.GrossSalary= objCreate.GrossSalary;
+         editdata.Idnumber= objCreate.Idnumber;
+         editdata.WorkplaceGroupId= objCreate.WorkplaceGroupId;
+         editdata.WorkplaceId= objCreate.WorkplaceId;
+         editdata.DepartmentId= objCreate.DepartmentId;
+         editdata.DesignationId= objCreate.DesignationId;
+         editdata.EmploymentTypeId = objCreate.EmploymentTypeId;
+
+         _context.TblEmployeeBasicInfos.Update(editdata);
          await _context.SaveChangesAsync();
          return new MessageHelper()
          {
