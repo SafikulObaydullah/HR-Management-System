@@ -8,5 +8,6 @@ namespace WebApiCoreLecture.Service.IRepository
       public Task<MessageHelper> CreateEmployeeBasicInformation(CreateEmployeeBasicInfoDTO objCreate);
       //public Task<MessageHelper> EditEmployeeBasicInfo(long id, CreateEmployeeBasicInfoDTO objCreate);
       public Task<MessageHelper> EditEmployeeBasicInfo(CreateEmployeeBasicInfoDTO objCreate);
+      public Task<EmployeeBasicInfoLandingPasignationDTO> EmployeeBasicInfoOwnLanding(long employeeId);
    }
 }

@@ -145,6 +145,63 @@ namespace WebApiCoreLecture.Service.EmployeeRepo
             statuscode = 200,
          };
       }
+      public async Task<EmployeeBasicInfoLandingPasignationDTO> EmployeeBasicInfoOwnLanding(long employeeId)
+      {
+         var data = await Task.FromResult((from eb in _context.TblEmployeeBasicInfos
+                                           where eb.IntEmployeeId == employeeId 
+                                           select new EmployeeBasicInfoLandingDataDTO
+                                           {
+                                              EmployeeId = eb.IntEmployeeId,
+                                              EmployeeCode = eb.strEmployeeCode,
+                                              EmployeeFullName = eb.EmployeeFullName,
+                                              EmployeeFirstName = eb.EmployeeFirstName,
+                                              MiddleName = eb.MiddleName,
+                                              LastName = eb.LastName,
+                                              AccountId = eb.AccountId,
+                                              BusinessunitId = eb.BusinessunitId,
+                                              Sbuid = eb.Sbuid,
+                                              CostCenterId = eb.CostCenterId,
+                                              WorkplaceGroupId = eb.WorkplaceGroupId,
+                                              DepartmentId = eb.DepartmentId,
+                                              Department = (from b in _context.TblEmployeeDepartment where b.IntDepartmentId == eb.DepartmentId && b.IsActive == true select b.StrDepartmentName).FirstOrDefault(),
+                                             
+                                              DesignationId = eb.DesignationId,
+                                              DesignationName = (from b in _context.TblEmployeeDesignation where b.IntDesignationId == eb.DepartmentId && b.IsActive == true select b.StrDesignationName).FirstOrDefault(),
+                                              EmpGradeId = eb.EmpGradeId,
+                                              EmploymentTypeId = eb.EmploymentTypeId,
+                                              EmploymentStatusId = eb.EmploymentStatusId,
+                                              CountryId = eb.CountryId,
+                                              ActionBy = eb.ActionBy,
+                                              JoiningDate = eb.JoiningDate,
+                                              PresentAddress = eb.PresentAddress,
+                                              PermanentAddress = eb.PermanentAddress,
+                                              ContactNumber = eb.ContactNumber,
+                                              AlternativeContactNumber = eb.AlternativeContactNumber,
+                                              Email = eb.Email,
+                                              DateOfBirth = eb.DateOfBirth,
+                                              IdtypeId = eb.IdtypeId,
+                                              Idnumber = eb.Idnumber,
+                                              FatherName = eb.FatherName,
+                                              MotherName = eb.MotherName,
+                                              BloodGroupId = eb.BloodGroupId,
+                                              SupervisorId = eb.SupervisorId,
+                                              SupervisorName = (from b in _context.TblEmployeeBasicInfos
+                                                                where b.IntEmployeeId == eb.SupervisorId
+                                                                select b.EmployeeFullName).FirstOrDefault(),
+                                              WorkplaceId = eb.WorkplaceId,
+                                              LineManagerId = eb.LineManagerId,
+                                              LineManagerName = (from b in _context.TblEmployeeBasicInfos
+                                                                 where b.IntEmployeeId == eb.LineManagerId
+                                                                 select b.EmployeeFullName).FirstOrDefault(),
+                                           }).ToList());
+         return new EmployeeBasicInfoLandingPasignationDTO
+         {
+            data = data,
+            currentPage = 1,
+            totalCount = data.Count(),
+            pageSize = 1
+         };
+      }
       private bool TblEmployeeExists(long id)
       {
          return _context.TblEmployeeBasicInfos.Any(e => e.IntEmployeeId == id);

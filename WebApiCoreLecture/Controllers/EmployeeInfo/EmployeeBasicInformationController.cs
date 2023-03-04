@@ -52,6 +52,15 @@ namespace WebApiCoreLecture.Controllers.EmployeeInfo
          var data = await _IRepository.EditEmployeeBasicInfo(objCreate);
          return Ok(data);
       }
+      [HttpGet]
+      [Route("")]
+      [HttpPut]
+      [Route("EmployeeBasicInfoOwnLanding")]
+      public async Task<IActionResult> EmployeeBasicInfoOwnLanding(long EmployeeId)
+      {
+         var data = await _IRepository.EmployeeBasicInfoOwnLanding(EmployeeId);
+         return Ok(data);
+      }
 
    }
 }
