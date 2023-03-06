@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OrderStore.Domain.Interfaces;
 using System.Security.Cryptography;
 using WebApiCoreLecture.Model;
 using WebApiCoreLecture.Service.EmployeeRepo;
@@ -22,6 +23,10 @@ builder.Services.AddCors(x => x.AddPolicy("MyPolicy", builder =>
 }));
 
 builder.Services.AddTransient<IEmployeeBasicInformation, EmployeeBasicInformation>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 var app = builder.Build();
 
 

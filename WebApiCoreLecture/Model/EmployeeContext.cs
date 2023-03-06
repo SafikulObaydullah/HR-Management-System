@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OrderStore.Domain.Models;
 using WebApiCoreLecture.Model.HRModel.EmployeeModel;
 
 namespace WebApiCoreLecture.Model
@@ -18,5 +19,7 @@ namespace WebApiCoreLecture.Model
       public virtual DbSet<TblEducationDegree> TblEducationDegree { get; set; }
       public virtual DbSet<TblEmployeeDepartment> TblEmployeeDepartment { get; set; }
       public virtual DbSet<TblEmployeeDesignation> TblEmployeeDesignation { get; set; }
+      public DbSet<Order> Orders { get; set; }
+      public DbSet<Product> Products { get; set; }
    }
 }

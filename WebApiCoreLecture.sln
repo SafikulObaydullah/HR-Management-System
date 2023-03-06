@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiCoreLecture", "WebApiCoreLecture\WebApiCoreLecture.csproj", "{4A0A6B37-6CB3-48A0-84CF-2E18E46028A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiCoreLecture", "WebApiCoreLecture\WebApiCoreLecture.csproj", "{4A0A6B37-6CB3-48A0-84CF-2E18E46028A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderStore.Domain", "OrderStore.Domain\OrderStore.Domain.csproj", "{AC286DC3-C117-49EB-9687-FD9F9A8773F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4A0A6B37-6CB3-48A0-84CF-2E18E46028A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A0A6B37-6CB3-48A0-84CF-2E18E46028A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A0A6B37-6CB3-48A0-84CF-2E18E46028A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC286DC3-C117-49EB-9687-FD9F9A8773F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC286DC3-C117-49EB-9687-FD9F9A8773F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC286DC3-C117-49EB-9687-FD9F9A8773F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC286DC3-C117-49EB-9687-FD9F9A8773F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
